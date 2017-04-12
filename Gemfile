@@ -20,4 +20,12 @@ end
 group :development, :test do
   gem "minitest-rails-capybara"
   gem "pry", :require => "pry"
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'figaro'
+  gem 'fabrication'
+  gem 'shoulda-matchers'
+  gem 'vcr'
+  gem 'webmock'
 end
