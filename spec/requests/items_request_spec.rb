@@ -45,4 +45,27 @@ describe "Items API" do
       expect(Item.find(item_two)).to be_truthy
     end
   end
+  # When I send a POST request to /api/v1/items with a name, description, and image_url
+  # I receive a 201 JSON response if the record is successfully created
+  # And I receive a JSON response containing the id, name, description, and image_url
+  # but not the created_at or updated_at
+
+
+  describe "POST /api/v1/items" do
+    it "creates a new item" do
+      expect(Item.count).to eq(0)
+      item_params = {name: "the new item", description: "the description", image_url: "sweetimage.com"}
+      post "/api/v1/items", params: {item: item_params}
+
+      expect(response.status).to eq(201)
+      expect(Item.count).to eq(1)
+      item_json = JSON.parse(response.body)
+      expect(item_json["name"]).to eq("the new item")
+      expect(item_json["description"]).to eq("the description")
+      expect(item_json["image_url"]).to eq("sweetimage.com")
+      expect(item_json["id"]).to be_truthy
+      expect(item_json["created_at"]).to_not be_truthy
+      expect(item_json["updated_at"]).to_not be_truthy
+    end
+  end
 end
