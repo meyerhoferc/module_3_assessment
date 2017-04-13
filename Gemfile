@@ -15,6 +15,7 @@ gem "minitest-rails"
 gem "byebug"
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'httparty'
+gem 'simplecov', :require => false, :group => :test
 
 group :development do
   gem "spring"
