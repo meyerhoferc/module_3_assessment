@@ -6,4 +6,9 @@ class Api::V1::ItemsController < ApplicationController
   def show
     render json: Item.find(params[:id])
   end
+
+  def destroy
+    Item.delete(params[:id])
+    render :nothing => true, :status => 204, :content_type => 'text/html' 
+  end
 end

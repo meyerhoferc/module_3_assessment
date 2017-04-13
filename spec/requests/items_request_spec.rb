@@ -31,4 +31,18 @@ describe "Items API" do
       expect(item_json["name"]).to_not eq("item two")
     end
   end
+
+
+  describe "DELETE /api/v1/items/:id" do
+    it "deletes the record and renders a 204" do
+      item_one = Fabricate(:item, name: "item one")
+      item_two = Fabricate(:item, name: "item two")
+
+      delete "/api/v1/items/#{item_one.id}"
+
+      expect(response).to be_success
+      expect(response.status).to eq(204)
+      expect(Item.find(item_two)).to be_truthy
+    end
+  end
 end
