@@ -7,8 +7,21 @@ class Api::V1::ItemsController < ApplicationController
     render json: Item.find(params[:id])
   end
 
+  def create
+    item = Item.new(item_params)
+    if item.save
+      render json: item, status: 201
+    end
+  end
+
   def destroy
     Item.delete(params[:id])
-    render :nothing => true, :status => 204, :content_type => 'text/html' 
+    render nothing: true, status: 204
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name, :description, :image_url)
   end
 end
