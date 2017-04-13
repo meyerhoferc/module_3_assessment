@@ -14,6 +14,7 @@ gem "less-rails-bootstrap"
 gem "minitest-rails"
 gem "byebug"
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'httparty'
 
 group :development do
   gem "spring"
