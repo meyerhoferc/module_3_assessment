@@ -10,8 +10,8 @@ describe "Items API" do
       expect(response).to be_success
 
       items_json = JSON.parse(response.body)
-
       expect(items_json.count).to eq(items.count)
+      expect(items_json.first["created_at"]).to eq(nil)
     end
   end
 end
