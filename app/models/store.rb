@@ -13,8 +13,15 @@ class Store
   end
 
   def self.find_by_zipcode(zipcode)
-    store_service.get_by_zipcode(zipcode).map do
-      Store.new()
+    results = store_service.get_by_zipcode(zipcode)
+    total_stores = results[:total_count]
+    stores = results[:stores].map do |store|
+      Store.new(name: store[:name],
+                store_type: store[:storeType],
+                city: store[:city],
+                distance: store[:distance],
+                phone_number: store[:phone])
     end
+    {stores: stores, total: total_stores}
   end
 end
