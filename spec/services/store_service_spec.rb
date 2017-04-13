@@ -6,7 +6,8 @@ describe StoreService do
       VCR.use_cassette("services/best_buy_stores_by_zipcode") do
         store_service = StoreService.new()
         json_stores = store_service.get_by_zipcode("80202")
-        expect(json_stores.count).to eq(10)
+        expect(json_stores[:stores].count).to eq(10)
+        expect(json_stores[:total_count]).to eq(16)
       end
     end
   end
