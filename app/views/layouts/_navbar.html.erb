@@ -10,6 +10,15 @@
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
+      <%= form_tag :search, method: :get, class: "form-inline" do %>
+        <div class="form-group search-field">
+          <%= text_field_tag :q, "Find a Best Buy in your area", class: "form-control" %>
+          <%= submit_tag "search", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </ul>
+    <ul class="nav navbar-nav">
+
       <li>
         <a href="/">Items</a>
       </li>

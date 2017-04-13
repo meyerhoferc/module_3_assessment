@@ -1,25 +1,3 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="navbar-header">
-    <button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <%= link_to "Storedom", root_path, class: "navbar-brand" %>
-  </div>
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <%= form_tag :search, method: :get, class: "form-inline" do %>
-        <div class="form-group search-field">
-          <%= text_field_tag :q, "Find a Best Buy in your area", class: "form-control" %>
-          <%= submit_tag "search", class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    </ul>
-  </div>
-</nav>
-
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
